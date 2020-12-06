@@ -36,18 +36,19 @@ h2 {
   font-family: ubuntu, sans-serif;
 }
 
-h4{
+h4 {
   text-align: center;
   font-family: ubuntu, sans-serif;
 }
 
-small{
+small {
+  text-align: justify;
   color: #8f8f8f;
   font-size: 10px;
   margin: 12px 0;
 }
 
-img{
+img {
   border: 1px solid;
 }
 
@@ -73,6 +74,11 @@ img{
   left: 90%;
   cursor: pointer;
 }
+
+.cart i {
+  color: #53a187;
+}
+
 .cart::before {
   content: attr(data-count);
   position: absolute;
@@ -90,11 +96,6 @@ img{
 .cart.zero:before {
   opacity: 1;
 }
-
-input{
-  display: none;
-}
-
 /* <!----------categories--------> */
 
 .row {
@@ -104,7 +105,7 @@ input{
   position: relative;
 }
 
-.card{
+.card {
   width: 300px;
   align-items: center;
   padding: 3%;
@@ -119,6 +120,7 @@ input{
   min-width: 280px;
   margin-bottom: 30px;
   transition: transform 0.5s;
+  padding-top: 5%;
 }
 
 .col-3:hover {
@@ -127,6 +129,10 @@ input{
 
 .col-3 img {
   width: 100%;
+}
+
+.latest-product{
+  padding-top: 10%;
 }
 
 .title-cat {
@@ -154,34 +160,13 @@ input{
   font-weight: normal;
 }
 
-.col-3 p,
-.col-4 p {
+.col-3 p{
   font-size: 14px;
 }
 
 .rating .fa {
-  color: #53a187;
-}
-
-.col-4 {
-  flex-basis: 20%;
-  min-width: 220px;
-  margin-bottom: 30px;
-  transition: transform 0.5s;
-}
-
-.col-4:hover {
-  transform: translateY(-5px);
-}
-
-.col-4 img {
-  align-items: center;
-  width: 110%;
-}
-
-.col-4 p {
-  font-size: 14px;
-}
+  color: #1f2422;
+} 
 
 .small-container {
   max-width: 1080px;
@@ -204,69 +189,8 @@ h6 {
   cursor: pointer;
 }
 
-.select {
-  width: 60%;
-  height: 580px;
-  padding: 5%;
-  background:radial-gradient(#98cebc, #53a187);
-  position: absolute;
-  top: -1000px;
-  left: 20%;
-  transition: 0.5s;
-  overflow: auto;
-  margin: 60px auto;
-}
-.select.display {
-  top: 10px;
-}
-
-.select div {
-  width: 100%;
-  height: 200px;
-  display: flex;
-  padding: 5px;
-  position: relative;
-  margin: 10px;
-}
-.select div img {
-  width: 300px;
-  height: 100%;
-}
-.select div h4 {
-  padding: 20px;
-  color: #555;
-}
-.select div button {
-  position: absolute;
-  left: 180%;
-  top: 50%;
-}
-.select div h6 {
-  position: absolute;
-  left: 130%;
-  top: 50%;
-}
-.select small{
-  display: none;
-}
-
-.select input{
-  display: inline;
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  left: 180%;
-  top: 30%;
-}
-
-.select div .rating{
-  position: absolute;
-  left: 125%;
-  top: 30%;
-}
-}
-.select div .span-cart {
-  display: none;
+.btn-cart:hover {
+  background: #b97373;
 }
 
 @media only screen and (max-width: 600px) {
@@ -279,7 +203,121 @@ h6 {
   }
 }
 
+/*****************CART************************/
 
+#cart{
+  padding-top: 10%;
+}
+
+.cart-header {
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #555;
+}
+
+.cart-column {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  margin-right: 1.5em;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.cart-row {
+  display: flex;
+  font-family: ubuntu, sans-serif;
+}
+
+.cart-item {
+  width: 45%;
+}
+
+.cart-price {
+  width: 20%;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.cart-quantity {
+  width: 35%;
+}
+
+.cart-item-title {
+  color: #555;
+  margin-left: 0.5em;
+  font-size: 1.2em;
+}
+
+.cart-item-image {
+  width: 75px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.btn-danger {
+  color: white;
+  background-color: #eb5757;
+  border: none;
+  border-radius: 0.3em;
+  font-weight: bold;
+  font-family: ubuntu, sans-serif;
+}
+
+.btn-danger:hover {
+  background-color: #cc4c4c;
+}
+
+.cart-quantity-input {
+  height: 34px;
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid #53a187;
+  background-color: #fff;
+  color: #555;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2em;
+  margin-right: 25px;
+}
+
+.cart-row:last-child {
+  border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+  border: none;
+}
+
+.cart-total {
+  text-align: end;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.cart-total-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #555;
+  margin-right: 20px;
+}
+
+.cart-total-price {
+  color: #555;
+  font-size: 1.1em;
+}
+
+.btn-purchase {
+  display: block;
+  margin: 40px auto 80px auto;
+  font-size: 1.75em;
+  background: #53a187;
+  border: #53a187;
+}
+
+.btn-purchase:hover{
+  background-color: #98cebc;
+}
 
 #footer {
   background: radial-gradient(#98cebc, #53a187);
@@ -330,3 +368,4 @@ h6 {
 .btn_contact:active {
   position: relative;
   top: 1px;
+}
